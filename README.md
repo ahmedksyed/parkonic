@@ -14,7 +14,6 @@
     <section class="card">
       <h2>Project Overview</h2>
       <p>This project is a parking management reporting system built with Laravel that provides dashboard KPIs, session reports, CSV export, and interactive charts for parking solutions companies.</p>
-
       <h3>Features</h3>
       <ul>
         <li>Dashboard with KPI cards and interactive charts</li>
@@ -24,7 +23,6 @@
         <li>Advanced filtering by date range, location, building, and status</li>
         <li>Responsive design for all devices</li>
       </ul>
-
       <h3>Technology Stack</h3>
       <ul>
         <li>Laravel 10+</li>
@@ -34,7 +32,6 @@
         <li>Bootstrap-compatible responsive design</li>
       </ul>
     </section>
-
     <section class="card">
       <h2>Prerequisites</h2>
       <ul>
@@ -44,7 +41,6 @@
         <li>Apache/Nginx web server</li>
         <li>Node.js (optional, for frontend assets)</li>
       </ul>
-
       <h2>Installation Steps</h2>
       <ol>
         <li><strong>Clone the repository</strong>
@@ -61,7 +57,7 @@ cd parkonic</code></pre>
           <pre><code>DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=parking_reports_demo
+DB_DATABASE=parking_reports
 DB_USERNAME=root
 DB_PASSWORD=</code></pre>
         </li>
@@ -96,10 +92,8 @@ php artisan view:clear</code></pre>
         </li>
       </ol>
     </section>
-
     <section class="card">
       <h2>Application Structure</h2>
-
       <h3>Models</h3>
       <ul>
         <li><code>ParkingSession</code> — main parking sessions model</li>
@@ -108,25 +102,21 @@ php artisan view:clear</code></pre>
         <li><code>AccessPoint</code> — entry/exit points</li>
         <li><code>VehicleMaster</code> — vehicle plate and emirates data</li>
       </ul>
-
       <h3>Controllers</h3>
       <ul>
         <li><code>ReportController</code> — handles dashboard and reporting functionality</li>
       </ul>
-
       <h3>Views</h3>
       <ul>
         <li><code>dashboard.blade.php</code> — main dashboard with charts and KPIs</li>
         <li><code>sessions-report.blade.php</code> — detailed sessions report table</li>
       </ul>
-
       <h3>Routes</h3>
       <ul>
         <li><code>/</code> or <code>/dashboard</code> — main dashboard</li>
         <li><code>/reports/sessions</code> — sessions report</li>
         <li><code>/reports/sessions/export</code> — CSV export endpoint</li>
       </ul>
-
       <h3>Database Schema (main tables)</h3>
       <ul>
         <li><code>parking_sessions</code> — core session data with timestamps and status</li>
@@ -136,10 +126,8 @@ php artisan view:clear</code></pre>
         <li><code>vehicle_masters</code></li>
       </ul>
     </section>
-
     <section class="card">
       <h2>Key Features Implementation</h2>
-
       <h3>Dashboard KPIs</h3>
       <ul>
         <li><strong>Total Active Sessions</strong> — count where <code>status = 1</code></li>
@@ -147,7 +135,6 @@ php artisan view:clear</code></pre>
         <li><strong>Average Parking Duration</strong> — average for closed sessions</li>
         <li><strong>Top Vehicle</strong> — vehicle with most sessions in filtered period</li>
       </ul>
-
       <h3>Charts (Chart.js)</h3>
       <ul>
         <li>Sessions per Hour — bar chart</li>
@@ -155,7 +142,6 @@ php artisan view:clear</code></pre>
         <li>Access Point Flow — bar chart</li>
         <li>Daily Sessions Trend — line chart</li>
       </ul>
-
       <h3>Filters</h3>
       <ul>
         <li>Date Range (From/To)</li>
@@ -164,7 +150,6 @@ php artisan view:clear</code></pre>
         <li>Status (Active / Closed / All)</li>
       </ul>
     </section>
-
     <section class="card">
       <h2>Usage Instructions</h2>
       <h3>Access</h3>
@@ -172,7 +157,6 @@ php artisan view:clear</code></pre>
         <li>Dashboard: <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a></li>
         <li>Sessions Report: <a href="http://127.0.0.1:8000/reports/sessions">/reports/sessions</a></li>
       </ul>
-
       <h3>Using Filters</h3>
       <ul>
         <li><strong>Date Range:</strong> defaults to last 7 days</li>
@@ -180,7 +164,6 @@ php artisan view:clear</code></pre>
         <li><strong>Status:</strong> Active, Closed or All</li>
         <li>Click <strong>Apply Filters</strong> to update; <strong>Clear Filters</strong> to reset</li>
       </ul>
-
       <h3>Exporting Data (CSV)</h3>
       <ol>
         <li>Go to Sessions Report</li>
@@ -188,7 +171,6 @@ php artisan view:clear</code></pre>
         <li>Click <strong>Export CSV</strong> — file downloads with filtered data</li>
       </ol>
     </section>
-
     <section class="card">
       <h2>API Endpoints</h2>
       <table>
@@ -203,7 +185,6 @@ php artisan view:clear</code></pre>
         </tbody>
       </table>
     </section>
-
     <section class="card">
       <h2>Assumptions &amp; Design Decisions</h2>
       <h3>Filter Logic</h3>
@@ -213,7 +194,6 @@ php artisan view:clear</code></pre>
         <li>Closed sessions are filtered by date range</li>
         <li>Average duration calculated only for closed sessions with valid <code>out_time</code></li>
       </ul>
-
       <h3>Performance Considerations</h3>
       <ul>
         <li>Database-side aggregation for charts and KPIs</li>
@@ -222,7 +202,6 @@ php artisan view:clear</code></pre>
         <li>Indexes on filtering / grouping columns</li>
       </ul>
     </section>
-
     <section class="card">
       <h2>Troubleshooting</h2>
       <h3>Common Issues &amp; Solutions</h3>
@@ -232,7 +211,6 @@ php artisan view:clear</code></pre>
         <li><strong>CSV export not working:</strong> Verify export route exists and is accessible</li>
         <li><strong>Charts not displaying:</strong> Check browser console for JS errors and that Chart.js is loaded</li>
       </ul>
-
       <h3>Error Resolution</h3>
       <ul>
         <li>Clear caches after changes: <code>php artisan config:clear</code>, etc.</li>
@@ -240,7 +218,6 @@ php artisan view:clear</code></pre>
         <li>Verify file permissions for <code>storage</code> and <code>bootstrap/cache</code></li>
       </ul>
     </section>
-
     <section class="card">
       <h2>Development Notes</h2>
       <ul>
@@ -251,7 +228,6 @@ php artisan view:clear</code></pre>
         <li>CSV export uses streaming for large datasets</li>
       </ul>
     </section>
-
     <section class="card">
       <h2>Support</h2>
       <p class="small">For technical support check:</p>
@@ -262,12 +238,10 @@ php artisan view:clear</code></pre>
         <li>Apache/Nginx error logs</li>
       </ul>
     </section>
-
     <section class="card">
       <h2>License</h2>
       <p>This project was developed as part of a parking solutions company assignment.</p>
     </section>
-
     <footer class="small">Generated README HTML — Parking Reports System</footer>
   </div>
 </body>
