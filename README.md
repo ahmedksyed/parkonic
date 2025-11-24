@@ -1,726 +1,300 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parking Reports System - Documentation</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .documentation {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 300;
-        }
-
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        .section {
-            margin-bottom: 40px;
-            padding: 30px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border-left: 5px solid #3498db;
-        }
-
-        .section h2 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            border-bottom: 2px solid #e9ecef;
-            padding-bottom: 10px;
-        }
-
-        .section h3 {
-            color: #3498db;
-            margin: 25px 0 15px 0;
-            font-size: 1.4em;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-top: 4px solid #3498db;
-        }
-
-        .feature-card h4 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .tech-item {
-            background: #3498db;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.9em;
-            font-weight: 500;
-        }
-
-        .prerequisites {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .prereq-item {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        .prereq-item strong {
-            color: #3498db;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .code-block {
-            background: #2c3e50;
-            color: #ecf0f1;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-            line-height: 1.4;
-        }
-
-        .code-block .comment {
-            color: #7f8c8d;
-        }
-
-        .code-block .keyword {
-            color: #e74c3c;
-        }
-
-        .code-block .string {
-            color: #27ae60;
-        }
-
-        .code-block .function {
-            color: #3498db;
-        }
-
-        .step {
-            background: white;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 8px;
-            border-left: 4px solid #27ae60;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        .step-number {
-            background: #27ae60;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-
-        .structure-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .structure-item {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            border-top: 3px solid #e74c3c;
-        }
-
-        .structure-item h4 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .kpi-item {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .kpi-number {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #3498db;
-            margin-bottom: 10px;
-        }
-
-        .troubleshooting {
-            background: #fff3cd;
-            border-left: 5px solid #ffc107;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .issue {
-            background: white;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border-left: 3px solid #e74c3c;
-        }
-
-        .solution {
-            background: #d4edda;
-            padding: 10px 15px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border-left: 3px solid #28a745;
-        }
-
-        .note {
-            background: #d1ecf1;
-            border-left: 5px solid #17a2b8;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-
-        @media (max-width: 768px) {
-            .content {
-                padding: 20px;
-            }
-            
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .section {
-                padding: 20px;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Parking Reports System - README</title>
+  <style>
+    :root{
+      --bg:#f7f8fb; --card:#ffffff; --muted:#6b7280; --accent:#2563eb;
+      --mono: Menlo, Monaco, "Courier New", monospace;
+    }
+    body{font-family:Inter,Segoe UI,Roboto,system-ui,Arial; background:var(--bg); color:#0f172a; margin:0; padding:32px;}
+    .container{max-width:980px; margin:0 auto;}
+    header{margin-bottom:18px}
+    h1{margin:0 0 8px; font-size:28px}
+    p.lead{color:var(--muted); margin:0 0 18px}
+    .card{background:var(--card); border-radius:10px; padding:20px; box-shadow:0 6px 18px rgba(13,14,22,0.06); margin-bottom:16px}
+    h2{font-size:20px; margin:12px 0}
+    h3{font-size:16px; margin:10px 0}
+    ul{margin:8px 0 12px 20px}
+    ol{margin:8px 0 12px 20px}
+    pre{background:#0b1220; color:#e6eef8; padding:12px; overflow:auto; border-radius:6px; font-family:var(--mono); font-size:13px}
+    code{background:#eef2ff; padding:2px 6px; border-radius:4px; font-family:var(--mono); font-size:90%}
+    table{width:100%; border-collapse:collapse; margin:12px 0}
+    th,td{padding:8px; border:1px solid #e6e9ef; text-align:left}
+    .muted{color:var(--muted)}
+    .small{font-size:13px;color:var(--muted)}
+    .kbd{background:#111827;color:#fff;padding:2px 6px;border-radius:4px;font-family:var(--mono);font-size:12px}
+    a{color:var(--accent); text-decoration:none}
+    footer.small{margin-top:18px;text-align:center}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="documentation">
-            <div class="header">
-                <h1>Parking Reports System</h1>
-                <p>Laravel Application - Complete Documentation</p>
-            </div>
+  <div class="container">
+    <header>
+      <h1>Parking Reports System</h1>
+      <p class="lead">Laravel Application — a comprehensive parking management reporting system with dashboard analytics, session reports, CSV export and Chart.js visualizations.</p>
+    </header>
 
-            <div class="content">
-                <!-- Project Overview -->
-                <div class="section">
-                    <h2>Project Overview</h2>
-                    <p>A comprehensive parking management reporting system built with Laravel that provides dashboard analytics, session reports, and data visualization for parking solutions companies.</p>
-                </div>
+    <section class="card">
+      <h2>Project Overview</h2>
+      <p>This project is a parking management reporting system built with Laravel that provides dashboard KPIs, session reports, CSV export, and interactive charts for parking solutions companies.</p>
 
-                <!-- Features -->
-                <div class="section">
-                    <h2>Features</h2>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <h4>Interactive Dashboard</h4>
-                            <p>Real-time KPI cards and interactive charts for data visualization</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Sessions Report</h4>
-                            <p>Detailed reporting with advanced filtering and pagination</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>CSV Export</h4>
-                            <p>Export filtered data to CSV format for external analysis</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Advanced Filtering</h4>
-                            <p>Filter by date range, location, building, and session status</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Responsive Design</h4>
-                            <p>Fully responsive interface that works on all devices</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Real-time Analytics</h4>
-                            <p>Live data visualization using Chart.js library</p>
-                        </div>
-                    </div>
-                </div>
+      <h3>Features</h3>
+      <ul>
+        <li>Dashboard with KPI cards and interactive charts</li>
+        <li>Sessions report with filtering and pagination</li>
+        <li>CSV export functionality</li>
+        <li>Real-time data visualization using Chart.js</li>
+        <li>Advanced filtering by date range, location, building, and status</li>
+        <li>Responsive design for all devices</li>
+      </ul>
 
-                <!-- Technology Stack -->
-                <div class="section">
-                    <h2>Technology Stack</h2>
-                    <div class="tech-stack">
-                        <div class="tech-item">Laravel 10+</div>
-                        <div class="tech-item">PHP 8.2+</div>
-                        <div class="tech-item">MySQL 8.0+</div>
-                        <div class="tech-item">Chart.js</div>
-                        <div class="tech-item">Bootstrap CSS</div>
-                        <div class="tech-item">JavaScript</div>
-                    </div>
-                </div>
+      <h3>Technology Stack</h3>
+      <ul>
+        <li>Laravel 10+</li>
+        <li>PHP 8.2+</li>
+        <li>MySQL 8.0+</li>
+        <li>Chart.js for data visualization</li>
+        <li>Bootstrap-compatible responsive design</li>
+      </ul>
+    </section>
 
-                <!-- Prerequisites -->
-                <div class="section">
-                    <h2>Prerequisites</h2>
-                    <div class="prerequisites">
-                        <div class="prereq-item">
-                            <strong>PHP 8.2+</strong>
-                            <span>Server-side scripting</span>
-                        </div>
-                        <div class="prereq-item">
-                            <strong>Composer 2.0+</strong>
-                            <span>Dependency management</span>
-                        </div>
-                        <div class="prereq-item">
-                            <strong>MySQL 8.0+</strong>
-                            <span>Database system</span>
-                        </div>
-                        <div class="prereq-item">
-                            <strong>Apache/Nginx</strong>
-                            <span>Web server</span>
-                        </div>
-                        <div class="prereq-item">
-                            <strong>Node.js</strong>
-                            <span>Optional for assets</span>
-                        </div>
-                    </div>
-                </div>
+    <section class="card">
+      <h2>Prerequisites</h2>
+      <ul>
+        <li>PHP 8.2 or higher</li>
+        <li>Composer 2.0 or higher</li>
+        <li>MySQL 8.0 or higher</li>
+        <li>Apache/Nginx web server</li>
+        <li>Node.js (optional, for frontend assets)</li>
+      </ul>
 
-                <!-- Installation Steps -->
-                <div class="section">
-                    <h2>Installation Steps</h2>
-                    
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Clone the Repository</strong>
-                        <div class="code-block">
-<span class="comment"># Clone the project repository</span><br>
-<span class="function">git clone</span> &lt;repository-url&gt;<br>
-<span class="function">cd</span> parkonic
-                        </div>
-                    </div>
+      <h2>Installation Steps</h2>
+      <ol>
+        <li><strong>Clone the repository</strong>
+          <pre><code>git clone &lt;repository-url&gt;
+cd parkonic</code></pre>
+        </li>
+        <li><strong>Install PHP dependencies</strong>
+          <pre><code>composer install</code></pre>
+        </li>
+        <li><strong>Environment configuration</strong><br>
+          Copy the env file and configure database:
+          <pre><code>cp .env.example .env</code></pre>
+          Edit `.env` with DB credentials:
+          <pre><code>DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=parking_reports_demo
+DB_USERNAME=root
+DB_PASSWORD=</code></pre>
+        </li>
+        <li><strong>Generate application key</strong>
+          <pre><code>php artisan key:generate</code></pre>
+        </li>
+        <li><strong>Database setup</strong><br>
+          Create the database and import the SQL:
+          <pre><code>-- Create database
+CREATE DATABASE parking_reports_demo;
 
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Install PHP Dependencies</strong>
-                        <div class="code-block">
-<span class="comment"># Install Composer dependencies</span><br>
-composer install
-                        </div>
-                    </div>
+-- Import SQL (example CLI)
+mysql -u root -p parking_reports_demo &lt; parking_reports_demo.sql</code></pre>
+        </li>
+        <li><strong>Configure database strict mode (optional)</strong><br>
+          To avoid MySQL GROUP BY / strict issues, either set in `.env`:
+          <pre><code>DB_STRICT=false</code></pre>
+          Or update `config/database.php` mysql config:
+          <pre><code>'mysql' =&gt; [
+    // ...
+    'strict' =&gt; false,
+],</code></pre>
+        </li>
+        <li><strong>Application setup — clear caches</strong>
+          <pre><code>php artisan config:clear
+php artisan cache:clear
+php artisan view:clear</code></pre>
+        </li>
+        <li><strong>Start development server</strong>
+          <pre><code>php artisan serve</code></pre>
+          <p class="small">App available at: <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a></p>
+        </li>
+      </ol>
+    </section>
 
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Environment Configuration</strong>
-                        <div class="code-block">
-<span class="comment"># Copy environment file</span><br>
-<span class="function">cp</span> .env.example .env<br><br>
-<span class="comment"># Edit .env file with your database credentials:</span><br>
-<span class="keyword">DB_CONNECTION</span>=mysql<br>
-<span class="keyword">DB_HOST</span>=127.0.0.1<br>
-<span class="keyword">DB_PORT</span>=3306<br>
-<span class="keyword">DB_DATABASE</span>=parking_reports_demo<br>
-<span class="keyword">DB_USERNAME</span>=root<br>
-<span class="keyword">DB_PASSWORD</span>=
-                        </div>
-                    </div>
+    <section class="card">
+      <h2>Application Structure</h2>
 
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Generate Application Key</strong>
-                        <div class="code-block">
-<span class="comment"># Generate Laravel application key</span><br>
-php artisan key:generate
-                        </div>
-                    </div>
+      <h3>Models</h3>
+      <ul>
+        <li><code>ParkingSession</code> — main parking sessions model</li>
+        <li><code>Location</code> — parking locations</li>
+        <li><code>Building</code> — building information</li>
+        <li><code>AccessPoint</code> — entry/exit points</li>
+        <li><code>VehicleMaster</code> — vehicle plate and emirates data</li>
+      </ul>
 
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Database Setup</strong>
-                        <div class="code-block">
-<span class="comment"># Create database in MySQL</span><br>
-<span class="function">CREATE DATABASE</span> parking_reports_demo;<br><br>
-<span class="comment"># Import the provided SQL file</span><br>
-mysql -u root -p parking_reports_demo &lt; parking_reports_demo.sql
-                        </div>
-                    </div>
+      <h3>Controllers</h3>
+      <ul>
+        <li><code>ReportController</code> — handles dashboard and reporting functionality</li>
+      </ul>
 
-                    <div class="step">
-                        <span class="step-number">6</span>
-                        <strong>Configure Database Strict Mode</strong>
-                        <div class="code-block">
-<span class="comment"># Add to .env file to avoid MySQL strict mode issues</span><br>
-<span class="keyword">DB_STRICT</span>=false
-                        </div>
-                    </div>
+      <h3>Views</h3>
+      <ul>
+        <li><code>dashboard.blade.php</code> — main dashboard with charts and KPIs</li>
+        <li><code>sessions-report.blade.php</code> — detailed sessions report table</li>
+      </ul>
 
-                    <div class="step">
-                        <span class="step-number">7</span>
-                        <strong>Application Setup</strong>
-                        <div class="code-block">
-<span class="comment"># Clear configuration cache</span><br>
-php artisan config:clear<br><br>
-<span class="comment"># Clear application cache</span><br>
-php artisan cache:clear<br><br>
-<span class="comment"># Clear view cache</span><br>
-php artisan view:clear
-                        </div>
-                    </div>
+      <h3>Routes</h3>
+      <ul>
+        <li><code>/</code> or <code>/dashboard</code> — main dashboard</li>
+        <li><code>/reports/sessions</code> — sessions report</li>
+        <li><code>/reports/sessions/export</code> — CSV export endpoint</li>
+      </ul>
 
-                    <div class="step">
-                        <span class="step-number">8</span>
-                        <strong>Start Development Server</strong>
-                        <div class="code-block">
-<span class="comment"># Start Laravel development server</span><br>
-php artisan serve<br><br>
-<span class="comment"># Application will be available at:</span><br>
-http://127.0.0.1:8000
-                        </div>
-                    </div>
-                </div>
+      <h3>Database Schema (main tables)</h3>
+      <ul>
+        <li><code>parking_sessions</code> — core session data with timestamps and status</li>
+        <li><code>locations</code></li>
+        <li><code>buildings</code></li>
+        <li><code>access_points</code></li>
+        <li><code>vehicle_masters</code></li>
+      </ul>
+    </section>
 
-                <!-- Application Structure -->
-                <div class="section">
-                    <h2>Application Structure</h2>
-                    <div class="structure-grid">
-                        <div class="structure-item">
-                            <h4>Models</h4>
-                            <p>ParkingSession<br>Location<br>Building<br>AccessPoint<br>VehicleMaster</p>
-                        </div>
-                        <div class="structure-item">
-                            <h4>Controllers</h4>
-                            <p>ReportController</p>
-                        </div>
-                        <div class="structure-item">
-                            <h4>Views</h4>
-                            <p>dashboard.blade.php<br>sessions-report.blade.php</p>
-                        </div>
-                        <div class="structure-item">
-                            <h4>Routes</h4>
-                            <p>/dashboard<br>/reports/sessions<br>/reports/sessions/export</p>
-                        </div>
-                    </div>
-                </div>
+    <section class="card">
+      <h2>Key Features Implementation</h2>
 
-                <!-- Database Schema -->
-                <div class="section">
-                    <h2>Database Schema</h2>
-                    <p>The system uses the following main tables:</p>
-                    <ul style="margin: 15px 0 15px 20px;">
-                        <li><strong>parking_sessions</strong> - Core session data with timestamps and status</li>
-                        <li><strong>locations</strong> - Parking location names</li>
-                        <li><strong>buildings</strong> - Building information</li>
-                        <li><strong>access_points</strong> - Entry and exit gates</li>
-                        <li><strong>vehicle_masters</strong> - Vehicle plate and emirates data</li>
-                    </ul>
-                </div>
+      <h3>Dashboard KPIs</h3>
+      <ul>
+        <li><strong>Total Active Sessions</strong> — count where <code>status = 1</code></li>
+        <li><strong>Total Closed Sessions</strong> — count where <code>status = 2</code> in date range</li>
+        <li><strong>Average Parking Duration</strong> — average for closed sessions</li>
+        <li><strong>Top Vehicle</strong> — vehicle with most sessions in filtered period</li>
+      </ul>
 
-                <!-- Key Features Implementation -->
-                <div class="section">
-                    <h2>Key Features Implementation</h2>
-                    
-                    <h3>Dashboard KPIs</h3>
-                    <div class="kpi-grid">
-                        <div class="kpi-item">
-                            <div class="kpi-number">1</div>
-                            <strong>Total Active Sessions</strong>
-                            <p>Count of sessions with status = 1</p>
-                        </div>
-                        <div class="kpi-item">
-                            <div class="kpi-number">2</div>
-                            <strong>Total Closed Sessions</strong>
-                            <p>Count of sessions with status = 2 in date range</p>
-                        </div>
-                        <div class="kpi-item">
-                            <div class="kpi-number">3</div>
-                            <strong>Average Parking Duration</strong>
-                            <p>Average time for closed sessions</p>
-                        </div>
-                        <div class="kpi-item">
-                            <div class="kpi-number">4</div>
-                            <strong>Top Vehicle</strong>
-                            <p>Vehicle with most sessions in filtered period</p>
-                        </div>
-                    </div>
+      <h3>Charts (Chart.js)</h3>
+      <ul>
+        <li>Sessions per Hour — bar chart</li>
+        <li>Sessions by Building — pie/doughnut chart</li>
+        <li>Access Point Flow — bar chart</li>
+        <li>Daily Sessions Trend — line chart</li>
+      </ul>
 
-                    <h3>Charts</h3>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <h4>Sessions per Hour</h4>
-                            <p>Bar chart showing hourly distribution</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Sessions by Building</h4>
-                            <p>Pie chart showing building distribution</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Access Point Flow</h4>
-                            <p>Bar chart showing entry/exit traffic</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Daily Sessions Trend</h4>
-                            <p>Line chart showing daily activity</p>
-                        </div>
-                    </div>
+      <h3>Filters</h3>
+      <ul>
+        <li>Date Range (From/To)</li>
+        <li>Location (dropdown)</li>
+        <li>Building (dropdown)</li>
+        <li>Status (Active / Closed / All)</li>
+      </ul>
+    </section>
 
-                    <h3>Filters</h3>
-                    <div class="tech-stack">
-                        <div class="tech-item">Date Range</div>
-                        <div class="tech-item">Location</div>
-                        <div class="tech-item">Building</div>
-                        <div class="tech-item">Status</div>
-                    </div>
-                </div>
+    <section class="card">
+      <h2>Usage Instructions</h2>
+      <h3>Access</h3>
+      <ul>
+        <li>Dashboard: <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a></li>
+        <li>Sessions Report: <a href="http://127.0.0.1:8000/reports/sessions">/reports/sessions</a></li>
+      </ul>
 
-                <!-- Usage Instructions -->
-                <div class="section">
-                    <h2>Usage Instructions</h2>
-                    
-                    <h3>Accessing the Application</h3>
-                    <div class="step">
-                        <strong>Dashboard</strong>
-                        <p>Navigate to: <code>http://127.0.0.1:8000</code></p>
-                    </div>
-                    <div class="step">
-                        <strong>Sessions Report</strong>
-                        <p>Click "Sessions Report" in navigation or go to: <code>http://127.0.0.1:8000/reports/sessions</code></p>
-                    </div>
+      <h3>Using Filters</h3>
+      <ul>
+        <li><strong>Date Range:</strong> defaults to last 7 days</li>
+        <li><strong>Location / Building:</strong> choose specific or view all</li>
+        <li><strong>Status:</strong> Active, Closed or All</li>
+        <li>Click <strong>Apply Filters</strong> to update; <strong>Clear Filters</strong> to reset</li>
+      </ul>
 
-                    <h3>Using Filters</h3>
-                    <ol style="margin-left: 20px;">
-                        <li><strong>Date Range</strong>: Select From and To dates (defaults to last 7 days)</li>
-                        <li><strong>Location</strong>: Filter by specific location or view all</li>
-                        <li><strong>Building</strong>: Filter by specific building or view all</li>
-                        <li><strong>Status</strong>: Filter by Active, Closed, or All sessions</li>
-                        <li><strong>Apply Filters</strong>: Click "Apply Filters" to update data</li>
-                        <li><strong>Clear Filters</strong>: Click "Clear Filters" to reset all filters</li>
-                    </ol>
+      <h3>Exporting Data (CSV)</h3>
+      <ol>
+        <li>Go to Sessions Report</li>
+        <li>Apply filters</li>
+        <li>Click <strong>Export CSV</strong> — file downloads with filtered data</li>
+      </ol>
+    </section>
 
-                    <h3>Exporting Data</h3>
-                    <ol style="margin-left: 20px;">
-                        <li>Navigate to Sessions Report page</li>
-                        <li>Apply desired filters</li>
-                        <li>Click "Export CSV" button</li>
-                        <li>File will download with current filtered data</li>
-                    </ol>
-                </div>
+    <section class="card">
+      <h2>API Endpoints</h2>
+      <table>
+        <thead>
+          <tr><th>Method</th><th>Endpoint</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>GET</td><td>/</td><td>Dashboard view</td></tr>
+          <tr><td>GET</td><td>/dashboard</td><td>Dashboard view</td></tr>
+          <tr><td>GET</td><td>/reports/sessions</td><td>Sessions report (paginated)</td></tr>
+          <tr><td>GET</td><td>/reports/sessions/export</td><td>CSV export of filtered sessions</td></tr>
+        </tbody>
+      </table>
+    </section>
 
-                <!-- API Endpoints -->
-                <div class="section">
-                    <h2>API Endpoints</h2>
-                    <div class="code-block">
-<span class="comment"># Dashboard views</span><br>
-<span class="function">GET</span> /<br>
-<span class="function">GET</span> /dashboard<br><br>
-<span class="comment"># Sessions report with pagination</span><br>
-<span class="function">GET</span> /reports/sessions<br><br>
-<span class="comment"># CSV export of filtered sessions</span><br>
-<span class="function">GET</span> /reports/sessions/export
-                    </div>
-                </div>
+    <section class="card">
+      <h2>Assumptions &amp; Design Decisions</h2>
+      <h3>Filter Logic</h3>
+      <ul>
+        <li>Date range applied to <code>in_time</code> for both active and closed sessions</li>
+        <li>Active sessions are shown regardless of date filters</li>
+        <li>Closed sessions are filtered by date range</li>
+        <li>Average duration calculated only for closed sessions with valid <code>out_time</code></li>
+      </ul>
 
-                <!-- Assumptions & Design Decisions -->
-                <div class="section">
-                    <h2>Assumptions & Design Decisions</h2>
-                    
-                    <h3>Filter Logic</h3>
-                    <ul style="margin: 15px 0 15px 20px;">
-                        <li><strong>Date Range</strong>: Applied to in_time field for both Active and Closed sessions</li>
-                        <li><strong>Active Sessions</strong>: Show all active sessions regardless of date filters</li>
-                        <li><strong>Closed Sessions</strong>: Only show sessions within date range filters</li>
-                        <li><strong>Average Duration</strong>: Calculated only for closed sessions with valid out_time</li>
-                    </ul>
+      <h3>Performance Considerations</h3>
+      <ul>
+        <li>Database-side aggregation for charts and KPIs</li>
+        <li>Eager loading to prevent N+1 queries</li>
+        <li>Pagination for sessions (default 25 per page)</li>
+        <li>Indexes on filtering / grouping columns</li>
+      </ul>
+    </section>
 
-                    <h3>Performance Considerations</h3>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <h4>Database-side Aggregation</h4>
-                            <p>Charts and KPIs use efficient SQL queries</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Eager Loading</h4>
-                            <p>Prevents N+1 query problems</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Pagination</h4>
-                            <p>Sessions report shows 25 records per page</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Efficient Grouping</h4>
-                            <p>Proper indexing for GROUP BY queries</p>
-                        </div>
-                    </div>
-                </div>
+    <section class="card">
+      <h2>Troubleshooting</h2>
+      <h3>Common Issues &amp; Solutions</h3>
+      <ul>
+        <li><strong>MySQL Group By Error:</strong> Set <code>DB_STRICT=false</code> in `.env`</li>
+        <li><strong>Calendar popup not working:</strong> Ensure datepicker CSS/JS are loaded</li>
+        <li><strong>CSV export not working:</strong> Verify export route exists and is accessible</li>
+        <li><strong>Charts not displaying:</strong> Check browser console for JS errors and that Chart.js is loaded</li>
+      </ul>
 
-                <!-- Troubleshooting -->
-                <div class="section">
-                    <h2>Troubleshooting</h2>
-                    
-                    <div class="troubleshooting">
-                        <h3>Common Issues</h3>
-                        
-                        <div class="issue">
-                            <strong>MySQL Group By Error</strong>
-                            <div class="solution">
-                                <strong>Solution:</strong> Set DB_STRICT=false in .env file
-                            </div>
-                        </div>
-                        
-                        <div class="issue">
-                            <strong>Calendar Popup Not Working</strong>
-                            <div class="solution">
-                                <strong>Solution:</strong> Use the enhanced date picker CSS and JavaScript provided
-                            </div>
-                        </div>
-                        
-                        <div class="issue">
-                            <strong>CSV Export Not Working</strong>
-                            <div class="solution">
-                                <strong>Solution:</strong> Ensure the export route is properly defined and accessible
-                            </div>
-                        </div>
-                        
-                        <div class="issue">
-                            <strong>Charts Not Displaying</strong>
-                            <div class="solution">
-                                <strong>Solution:</strong> Check browser console for JavaScript errors, ensure Chart.js is loaded
-                            </div>
-                        </div>
-                    </div>
+      <h3>Error Resolution</h3>
+      <ul>
+        <li>Clear caches after changes: <code>php artisan config:clear</code>, etc.</li>
+        <li>Check DB connection in `.env`</li>
+        <li>Verify file permissions for <code>storage</code> and <code>bootstrap/cache</code></li>
+      </ul>
+    </section>
 
-                    <h3>Error Resolution</h3>
-                    <ul style="margin: 15px 0 15px 20px;">
-                        <li><strong>Clear caches</strong> after configuration changes</li>
-                        <li><strong>Check database connections</strong> in .env file</li>
-                        <li><strong>Verify file permissions</strong> for storage and bootstrap/cache directories</li>
-                        <li><strong>Check browser console</strong> for frontend issues</li>
-                    </ul>
-                </div>
+    <section class="card">
+      <h2>Development Notes</h2>
+      <ul>
+        <li>Uses Eloquent ORM with relationships</li>
+        <li>Efficient DB queries with aggregation</li>
+        <li>Responsive design compatible with mobile</li>
+        <li>Chart.js integration for visualization</li>
+        <li>CSV export uses streaming for large datasets</li>
+      </ul>
+    </section>
 
-                <!-- Development Notes -->
-                <div class="section">
-                    <h2>Development Notes</h2>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <h4>Eloquent ORM</h4>
-                            <p>Uses proper relationships between models</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Efficient Queries</h4>
-                            <p>Database-side aggregation for performance</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Responsive Design</h4>
-                            <p>Compatible with mobile devices and tablets</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Chart.js Integration</h4>
-                            <p>Interactive data visualization</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>CSV Export</h4>
-                            <p>Streaming for large datasets</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4>Modern UI/UX</h4>
-                            <p>Clean and intuitive user interface</p>
-                        </div>
-                    </div>
-                </div>
+    <section class="card">
+      <h2>Support</h2>
+      <p class="small">For technical support check:</p>
+      <ul>
+        <li><code>storage/logs/laravel.log</code></li>
+        <li>Browser console for JavaScript errors</li>
+        <li>Database connection in <code>.env</code></li>
+        <li>Apache/Nginx error logs</li>
+      </ul>
+    </section>
 
-                <!-- Support -->
-                <div class="section">
-                    <h2>Support</h2>
-                    <p>For technical support or issues with the application, check the following:</p>
-                    <ol style="margin: 15px 0 15px 20px;">
-                        <li>Laravel logs in <code>storage/logs/laravel.log</code></li>
-                        <li>Browser console for JavaScript errors</li>
-                        <li>Database connection settings in <code>.env</code> file</li>
-                        <li>Apache/Nginx error logs for server issues</li>
-                    </ol>
-                </div>
+    <section class="card">
+      <h2>License</h2>
+      <p>This project was developed as part of a parking solutions company assignment.</p>
+    </section>
 
-                <!-- License -->
-                <div class="section">
-                    <h2>License</h2>
-                    <p>This project is developed as part of a parking solutions company assignment.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <footer class="small">Generated README HTML — Parking Reports System</footer>
+  </div>
 </body>
 </html>
