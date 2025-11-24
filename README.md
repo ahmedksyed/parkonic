@@ -3,32 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Parking Reports System - README</title>
-  <style>
-    :root{
-      --bg:#f7f8fb; --card:#ffffff; --muted:#6b7280; --accent:#2563eb;
-      --mono: Menlo, Monaco, "Courier New", monospace;
-    }
-    body{font-family:Inter,Segoe UI,Roboto,system-ui,Arial; background:var(--bg); color:#0f172a; margin:0; padding:32px;}
-    .container{max-width:980px; margin:0 auto;}
-    header{margin-bottom:18px}
-    h1{margin:0 0 8px; font-size:28px}
-    p.lead{color:var(--muted); margin:0 0 18px}
-    .card{background:var(--card); border-radius:10px; padding:20px; box-shadow:0 6px 18px rgba(13,14,22,0.06); margin-bottom:16px}
-    h2{font-size:20px; margin:12px 0}
-    h3{font-size:16px; margin:10px 0}
-    ul{margin:8px 0 12px 20px}
-    ol{margin:8px 0 12px 20px}
-    pre{background:#0b1220; color:#e6eef8; padding:12px; overflow:auto; border-radius:6px; font-family:var(--mono); font-size:13px}
-    code{background:#eef2ff; padding:2px 6px; border-radius:4px; font-family:var(--mono); font-size:90%}
-    table{width:100%; border-collapse:collapse; margin:12px 0}
-    th,td{padding:8px; border:1px solid #e6e9ef; text-align:left}
-    .muted{color:var(--muted)}
-    .small{font-size:13px;color:var(--muted)}
-    .kbd{background:#111827;color:#fff;padding:2px 6px;border-radius:4px;font-family:var(--mono);font-size:12px}
-    a{color:var(--accent); text-decoration:none}
-    footer.small{margin-top:18px;text-align:center}
-  </style>
+  
 </head>
 <body>
   <div class="container">
