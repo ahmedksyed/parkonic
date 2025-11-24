@@ -10,7 +10,7 @@
       <h1>Parking Reports System</h1>
       <p class="lead">Laravel Application — a comprehensive parking management reporting system with dashboard analytics, session reports, CSV export and Chart.js visualizations.</p>
     </header>
-
+<body>
     <section class="card">
       <h2>Project Overview</h2>
       <p>This project is a parking management reporting system built with Laravel that provides dashboard KPIs, session reports, CSV export, and interactive charts for parking solutions companies.</p>
